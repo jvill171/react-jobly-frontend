@@ -1,5 +1,5 @@
 import React from "react";
-import { commaWholeNum } from "../../helpers/helpers";
+import { commaWholeNum } from "../../helpers/numberFormatting";
 import "./JobCard.css"
 
 const JobCard = ({data}) =>{

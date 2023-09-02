@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
+import NavBar from './components/NavBar/NavBar';
+import JoblyApi from "./helpers/api"
+import RouteList from './components/RouteList/RouteList';
+// import { useState } from 'react';
+
 
 function App() {
+
+  // const [jobs, setJobs] = useState([])
+  // const [companies, setCompanies] = useState([])
+  // const [companyJobs, setCompanyJobs] = useState([])
+
+  const callAPI = async () =>{
+    console.log(await JoblyApi.getCompany("boyd-evans"))
+    // console.log(await JoblyApi.getAllCompanies())
+    // console.log(await JoblyApi.getAllJobs())
+  }
+
+  callAPI();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <NavBar />
+        <RouteList />
+      </BrowserRouter>
     </div>
   );
 }

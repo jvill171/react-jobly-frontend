@@ -5,11 +5,13 @@ import SearchList from "../SearchList/SearchList"
 import ItemList from "../ItemList/ItemList"
 import Profile from "../Profile/Profile"
 import AuthForm from "../AuthForm/AuthForm"
+import JobCard from "../JobCard/JobCard";
+import CompanyCard from "../CompanyCard/CompanyCard";
+import CompanyJobs from "../CompanyJobs/CompanyJobs";
 
-const RouteList = () =>{
+const RouteList = ({ allCompanies, allJobs }) =>{
     return(
         <Routes>
-
           <Route
             path="/"
             element={ <Home /> }
@@ -17,17 +19,27 @@ const RouteList = () =>{
           
           <Route
             path="/jobs"
-            element={<SearchList />}
+            element={
+              <SearchList
+                ComponentType={ JobCard }
+                listData={ allJobs }
+                searchType={"title"}
+              />}
           />
           
           <Route
             path="/companies"
-            element={<SearchList />}
+            element={
+              <SearchList
+                ComponentType={ CompanyCard }
+                listData={ allCompanies }
+                searchType={"name"}
+              />}
           />
           
           <Route
             path="/companies/:handle"
-            element={<ItemList />}
+            element={<CompanyJobs />}
           />
           
           <Route
@@ -44,7 +56,6 @@ const RouteList = () =>{
             path="/signup"
             element={<AuthForm />}
           />
-
         </Routes>
     )
 }

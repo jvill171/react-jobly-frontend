@@ -1,12 +1,12 @@
 import React from "react";
 import "./NavBar.css"
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () =>{
     return(
         <nav className="navbar">
             <div className="logo">
-                <Link activeClassName="" to="/">Jobly</Link>
+                <Link to="/">Jobly</Link>
             </div>
             <ul className="nav-NavLinks">
                 

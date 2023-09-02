@@ -2,12 +2,13 @@
 
 /* Style for the entire navbar */
 .navbar {
-    background-color: #6e86b3;
+    background-color: rgb(110, 134, 179);
     color: #fff;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
   }
   
   /* Style for the logo */

@@ -29,7 +29,7 @@
     margin-right: 20px;
   }
   
-  a{
+  a, .signout{
     text-decoration: none;
     color: #fff;
   }
@@ -42,9 +42,11 @@
     transition: color 0.3s ease;
   }
   
-  .nav-NavLinks a:hover:not(a.active)
+  .nav-NavLinks a:hover:not(a.active), .signout:hover
   {
-    scale: 150%;
-    color: black; /* Change the color on hover (e.g., to orange) */
+    color: black;
+    cursor: pointer;
   }
+  
+
   

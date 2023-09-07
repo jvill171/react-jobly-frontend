@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
 import "./SearchList.css"
+import UserContext from "../../context/UserContext";
 
 const SearchList = ({ComponentType, listData, searchType}) =>{
     
@@ -18,7 +19,7 @@ const SearchList = ({ComponentType, listData, searchType}) =>{
         setTimeout(()=>{
             setIsLoading(false);
         }, 200)
-    },[ComponentType, listData])
+    },[ComponentType])
 
     return(
         <>

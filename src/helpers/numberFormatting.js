@@ -1,6 +1,7 @@
 
-/** commaWholeNum takes a positive whole # and
- * returns a comma-formatted whole number
+/** commaWholeNum takes a positive whole number and
+ * returns a comma-formatted whole number with a $ in front
+ *      1000000 => $1,000,000
 */
 const commaWholeNum = (numLarge) =>{
     if(!numLarge) return;

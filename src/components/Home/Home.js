@@ -10,12 +10,12 @@ const Home = () =>{
             <h1>Jobly</h1>
             <p>All the jobs in one, convenient place.</p>
             {user ?
-            <h2>Welcome Back, Exa!</h2>
-            :
-            <div>
-                <Link to="/login"><button>Log in</button></Link>
-                <Link to="/signup"><button>Sign up</button></Link>
-            </div>
+                <h2>Welcome Back, Exa!</h2>
+                :
+                <div>
+                    <Link to="/login"><button>Log in</button></Link>
+                    <Link to="/signup"><button>Sign up</button></Link>
+                </div>
 
             }
 

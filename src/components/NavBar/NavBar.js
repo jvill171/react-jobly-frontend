@@ -34,7 +34,7 @@ const NavBar = () =>{
                         </li>
                         <li>
                             <NavLink to="/profile" >
-                                Profile
+                                {user}
                             </NavLink>
                         </li>
                         <li>

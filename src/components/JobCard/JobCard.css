@@ -34,7 +34,11 @@
     padding: 12px;
 }
 
-.job-apply button:hover{
+button.not-applied:hover{
     background-color: rgb(197, 7, 7);
     cursor: pointer;
+}
+
+button.applied{
+    background-color: rgb(218, 99, 99);
 }

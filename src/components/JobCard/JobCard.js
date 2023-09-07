@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { commaWholeNum } from "../../helpers/numberFormatting";
 import "./JobCard.css"
+import UserContext from "../../context/UserContext";
+import JobApplyContext from "../../context/JobApplyContext";
 
 const JobCard = ({data}) =>{
     const {title, companyName, salary, equity, id}= data
 
-    const handleApply = () =>{
-        console.log("APPLIED FOR JOB WITH ID", id)
+    const {user} = useContext(UserContext)
+    const {appliedJobs, addJobApp} = useContext(JobApplyContext)
+
+    const handleApply = async() =>{
+        await addJobApp(id)
     }
+
 
     return(
         <div className="JobCard">
@@ -22,7 +28,10 @@ const JobCard = ({data}) =>{
             </div>
             <p><b>ID</b>: {id}</p>
             <div className="job-apply">
-                <button onClick={handleApply}>APPLY</button>
+                {appliedJobs.includes(id) ?
+                <button  className="applied" disabled>APPLIED</button>
+                :<button className="not-applied"onClick={handleApply}>APPLY</button>
+                }
             </div>
         </div>
     )

@@ -10,6 +10,7 @@ const UserProvider = () =>{
 
     const [user, setUser] = useState(undefined);
     const [isLoading, setIsLoading] = useState(true)
+    const navigate = useNavigate();
 
     const updateUser = () => {
       try{
@@ -19,12 +20,10 @@ const UserProvider = () =>{
       }catch(err){
         // Authentication to routes that require
         // authentication will be handled by backend
-        setUser() // Bad/no token = Invalid user; Log out
+        setUser(undefined) // Bad/no token = Invalid user; Log out
         navigate("/") //After logout, redirect to "/"
       }
     };
-    
-    const navigate = useNavigate();
     
     useEffect(()=>{
       if(!user){

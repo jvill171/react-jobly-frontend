@@ -11,21 +11,23 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
  */
 
 class JoblyApi {
-  // the token for interactive with the API will be stored here.
-  static token;
-
   static async request(endpoint, data = {}, method = "get") {
     console.debug("API Call:", endpoint, data, method);
+    
+    // Pull the token from the localstorage
+    const token = localStorage.getItem(`_token`)
 
     //there are multiple ways to pass an authorization token, this is how you pass it in the header.
     //this has been provided to show you another way to pass the token. you are only expected to read this code for this project.
     const url = `${BASE_URL}/${endpoint}`;
-    const headers = { Authorization: `Bearer ${JoblyApi.token}` };
+    const headers = { Authorization: `Bearer ${token}` };
     const params = (method === "get")
         ? data
         : {};
 
     try {
+      // Uncomment line below for more detailed debug
+      // console.debug(`MAKING API CALL\n`, method, url, `\ndata:`, data, `\nheaders:`, headers)
       return (await axios({ url, method, data, params, headers })).data;
     } catch (err) {
       console.error("API Error:", err.response);
@@ -41,41 +43,127 @@ class JoblyApi {
    *
    *  {  
    *    name, handle, description, logoUrl, numEmployees, 
-   *    jobs: [
-   *            { equity, id, salary, title }, ...
-   *          ]
+   *        jobs: [ { equity, id, salary, title }, ... ]
    *  }
   */
   static async getCompany(handle) {
-    let res = await this.request(`companies/${handle}`);
-    return res.company;
+    try{
+      let res = await this.request(`companies/${handle}`);
+      return res.company;
+    }catch(err){
+      console.error(err);
+    }
   }
 
-  /** Get a complete list of all companies
-   * 
-   * [ { name, handle, description, logoUrl, numEmployees }, ... ]
+  /**getAllCompanies
+   *  Returns an array of all companies
+   *        [ { name, handle, description, logoUrl, numEmployees }, ... ]
    */
   static async getAllCompanies() {
-    let res = await this.request(`companies/`);
-    return res.companies;
+    try{
+      let res = await this.request(`companies/`);
+      return res.companies;
+    }catch(err){
+      console.error(err);
+    }
   }
 
-  /** Get a complete list of all jobs
-   * 
-   * [ { companyHandle, companyName, equity, id, salary, title }, ... ]
+  /**getAllJobs
+   * Returns an array of all jobs
+   *        [ { companyHandle, companyName, equity, id, salary, title }, ... ]
    */
   static async getAllJobs() {
-    let res = await this.request(`jobs/`);
-    return res.jobs;
+    try{
+      let res = await this.request(`jobs/`);
+      return res.jobs;
+    }catch(err){
+      console.error(err);
+    }
   }
 
-  // obviously, you'll add a lot here ...
-}
+  /**applyToJob
+   *  As user [username], attempts to apply to job [id]
+   *      returns: jobID
+  */
+  static async applyToJob(username, id){
+    try{
+      let res = await this.request(`users/${username}/jobs/${id}`,{}, "post");
+      return res.applied;
+    }catch(err){
+      console.error(err)
+    }
+  }
 
-// for now, put token ("testuser" / "password" on class)
-JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
-    "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
-    "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+  /** getUserData
+   * Returns response:
+   *    { username, firstName, lastName, email, isAdmin,
+   *      jobs:[{ id, title, companyHandle, companyName, state }, ...]
+   *   }
+   */
+  static async getUserData(username){
+    try{
+      let res = await this.request(`users/${username}`)
+      return res.user;
+    }catch(err){
+      console.error(err)
+    }
+  }
+
+  /** getAppliedJobsIDs
+   * Returns array of job IDs user has applied to:
+   *    [ appliedJobID, ... ]
+   */
+  static async getAppliedJobIDs(username){
+    try{
+      let res = await this.request(`users/${username}`)
+      let applications = res.user.applications;
+      return applications;
+    }catch(err){
+      console.error(err)
+    }
+  }
+
+  /** updateUserData
+   * Returns response:
+   *    { username, firstName, lastName, email, isAdmin }
+   */
+  static async updateUserData(currUser, data){
+    const {username, isAdmin, ...newData} = data;
+    try{
+      let res = await this.request(`users/${currUser}`, newData, "patch")
+      return res.user;
+    }catch(err){
+      console.error(err)
+    }
+  }
+  
+  /** updateUserData
+   * Returns response:    token
+   */
+  static async signUp(data){
+    try{
+      let res = await this.request(`auth/register`, data, "post")
+      return res.token;
+    }catch(err){
+      console.error(err)
+      return err;
+    }
+  }
+
+  /**login
+   * Returns response:    token
+   */
+  static async login(data){
+    try{
+      let res = await this.request(`auth/token`, data, "post")
+      return res.token
+    }catch(err){
+      console.error(err)
+      return err;
+    }
+  }
+
+}
 
 export default JoblyApi;
 

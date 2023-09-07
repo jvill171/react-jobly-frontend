@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
 import { commaWholeNum } from "../../helpers/numberFormatting";
 import "./JobCard.css"
-import UserContext from "../../context/UserContext";
 import JobApplyContext from "../../context/JobApplyContext";
 
 const JobCard = ({data}) =>{
     const {title, companyName, salary, equity, id}= data
 
-    const {user} = useContext(UserContext)
     const {appliedJobs, addJobApp} = useContext(JobApplyContext)
 
     const handleApply = async() =>{

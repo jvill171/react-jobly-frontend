@@ -1,5 +1,5 @@
 import AuthForm from "../AuthForm/AuthForm";
-import JoblyApi from "../../helpers/JoblyApi";
+import JoblyApi from "../../helpers/api";
 
 const SignUp = () =>{
     const formAttr = [

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import JoblyApi from "../../helpers/JoblyApi";
+import JoblyApi from "../../helpers/api";
 import UserContext from "../../context/UserContext";
 import JobApplyContext from "../../context/JobApplyContext"
 

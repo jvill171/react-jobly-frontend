@@ -7,7 +7,7 @@ import CompanyCard from "../CompanyCard/CompanyCard";
 import CompanyJobs from "../CompanyJobs/CompanyJobs";
 import SignUp from "../SignUp/SignUp";
 import Login from "../Login/Login";
-import JoblyApi from '../../helpers/JoblyApi';
+import JoblyApi from '../../helpers/api';
 import { useContext, useEffect, useState } from 'react';
 import UserContext from '../../context/UserContext';
 

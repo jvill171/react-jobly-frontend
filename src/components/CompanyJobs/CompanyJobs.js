@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import JoblyApi from "../../helpers/api";
+import JoblyApi from "../../helpers/JoblyApi";
 import JobCard from "../JobCard/JobCard";
 import "./CompanyJobs.css"
 import ItemList from "../ItemList/ItemList";

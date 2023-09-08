@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Jobly
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Jobly is a mock app where users can view job postings and apply for open positions. The frontend was built with React and the backend was built with Node, Express, and PostgreSQL.
 
-## Available Scripts
+To see a live demo: 
 
-In the project directory, you can run:
+Sign up on your own or use this demo account:
 
-### `npm start`
+* Username: demouser
+* Password: password   
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Jobly is a React-based job app featuring account creation, profile editing, protected routes, and pretty nice styling!
 
-### `npm test`
+[Live Demo](https://jvill171-react-jobly.surge.sh/ "Jobly")
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies
+* React.js
+* Node Express.js
+* PostgreSQL
 
-### `npm run build`
+## Features
+* Profile editing
+* Apply to jobs
+* Account creation, login, logout -> uses authorization and authentication middleware to protect private routes
+* Search Companies & Jobs: browse and search hiring companies and view the jobs posted by each company.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started on the Server (backend)
+* Clone the repository
+* `cd server`
+* `npm i`
+* `createdb jobly`
+* `createdb jobly_test`
+* `psql jobly < data.sql`
+* `npm start`
+* `npm test` to run the tests
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started on the Client (frontend)
+* `npm i`
+* `npm run start`
+* `npm run test` to run the tests
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Note
+The deployed version of this app uses a backend written by Rithm School (this was so that students could start with the same codebase when building out the React frontend). I have written my own version of the backend [which can be found here](https://github.com/charleskantz/express-jobly](https://github.com/jvill171/react-jobly.git)https://github.com/jvill171/react-jobly.git).

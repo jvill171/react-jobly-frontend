@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-import JoblyApi from "./helpers/api"
+import JoblyApi from "./helpers/JoblyApi"
 import { useEffect, useState } from 'react';
 import UserProvider from './components/UserProvider/UserProvider.js';
 

@@ -42,4 +42,4 @@ Jobly is a React-based job app featuring account creation, profile editing, prot
 * `npm run test` to run the tests
 
 ### Note
-The deployed version of this app uses a backend written by Rithm School (this was so that students could start with the same codebase when building out the React frontend). I have written my own version of the backend [which can be found here](https://github.com/charleskantz/express-jobly](https://github.com/jvill171/react-jobly.git)https://github.com/jvill171/react-jobly.git).
+The deployed version of this app uses a backend written by Rithm School (this was so that students could start with the same codebase when building out the React frontend). I have written my own version of the backend [which can be found here](https://github.com/jvill171/react-jobly.git).
